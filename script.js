@@ -1,14 +1,20 @@
+const mainCard = document.getElementById('main-card');
+const secretMessage = document.getElementById('secret-message');
+const instruction = document.getElementById('click-instruction');
+
+// Función para abrir la tarjeta
+mainCard.addEventListener('click', function() {
+    secretMessage.classList.remove('hidden');
+    instruction.classList.add('hidden');
+    mainCard.style.cursor = 'default';
+});
+
+// Función de los corazones (la misma de antes)
 function createHeart() {
     const heart = document.createElement('div');
     heart.classList.add('heart');
-    
-    // Usamos el símbolo de corazón
     heart.innerHTML = '❤️';
-    
-    // Posición horizontal aleatoria
     heart.style.left = Math.random() * 100 + "vw";
-    
-    // Tamaño y duración de animación aleatorios para naturalidad
     const duration = Math.random() * 3 + 2;
     heart.style.animationDuration = duration + "s";
     heart.style.opacity = Math.random();
@@ -16,13 +22,9 @@ function createHeart() {
     
     document.getElementById('hearts-container').appendChild(heart);
     
-    // Limpiar el DOM eliminando el corazón después de la animación
     setTimeout(() => {
         heart.remove();
     }, duration * 1000);
 }
 
-// Crear un corazón cada 300ms
 setInterval(createHeart, 300);
-
-console.log("Página cargada con éxito para Juan. ✨");
