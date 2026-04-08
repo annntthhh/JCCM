@@ -13,30 +13,27 @@ h1 { font-size: 2.8rem; color: #5e4b3c; margin: 0; }
 
 .container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: flex-start;
-    padding: 0 50px 50px 50px;
-    gap: 30px;
-    flex-wrap: wrap; /* Para móviles */
+    padding: 20px;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
-/* --- ESTILO IZQUIERDA: CONTADOR Y CARTAS --- */
-.side-left { flex: 1; max-width: 500px; }
+/* --- IZQUIERDA --- */
+.side-left { flex: 1; max-width: 500px; min-width: 320px; }
 
 .timer-box {
     background: white;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    margin-bottom: 30px;
-    text-align: left;
+    margin-bottom: 25px;
 }
 
-.timer-label { font-style: italic; color: #d81b60; margin-bottom: 10px; }
-
 #clock { display: flex; gap: 15px; }
-.time-unit { text-align: center; font-weight: bold; font-size: 1.5rem; color: #5e4b3c; }
-.time-unit small { display: block; font-size: 0.7rem; text-transform: uppercase; color: #aaa; }
+.time-unit { text-align: center; font-weight: bold; font-size: 1.4rem; color: #d81b60; }
+.time-unit small { display: block; font-size: 0.7rem; color: #aaa; text-transform: uppercase; }
 
 .card {
     background: rgba(255, 255, 255, 0.9);
@@ -44,56 +41,40 @@ h1 { font-size: 2.8rem; color: #5e4b3c; margin: 0; }
     border-radius: 12px;
     margin-bottom: 20px;
     border-left: 6px solid #5e4b3c;
-    cursor: pointer;
-    transition: 0.4s;
-    height: 90px;
-    overflow: hidden;
-}
-.card.open { height: auto; background: white; }
-
-/* --- ESTILO DERECHA: SPOTIFY --- */
-.side-right { flex: 1; max-width: 400px; }
-
-.spotify-player {
-    background: #121212; /* Color oscuro Spotify */
-    color: white;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-    font-family: 'Arial', sans-serif;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
 }
 
-.spotify-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid #333;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-    font-weight: bold;
-}
+.toggle-card { cursor: pointer; transition: 0.4s; height: 90px; overflow: hidden; }
+.toggle-card.open { height: auto; background: white; }
 
-.song-list { max-height: 400px; overflow-y: auto; }
-.song {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-radius: 5px;
-    transition: 0.3s;
+/* Termómetro */
+.progress-container { background: #eee; border-radius: 20px; height: 20px; margin: 15px 0; overflow: hidden; }
+.progress-bar { background: linear-gradient(90deg, #ff80ab, #d81b60); height: 100%; width: 0%; transition: width 2s ease-in-out; }
+
+/* Botón Abrazo */
+#hug-btn {
+    background: #5e4b3c; color: white; border: none; padding: 10px; width: 100%;
+    border-radius: 8px; cursor: pointer; font-family: inherit; transition: 0.3s;
 }
+#hug-btn:hover { background: #d81b60; transform: scale(1.02); }
+
+/* --- DERECHA: SPOTIFY --- */
+.side-right { flex: 1; max-width: 380px; min-width: 300px; }
+.spotify-player { background: #121212; color: white; border-radius: 15px; padding: 20px; font-family: sans-serif; }
+.spotify-header { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+.song-list { max-height: 450px; overflow-y: auto; }
+.song { display: flex; align-items: center; padding: 8px; border-radius: 4px; font-size: 0.85rem; }
 .song:hover { background: #282828; }
-.song span { color: #b3b3b3; margin-right: 15px; width: 20px; }
-.song p { margin: 0; font-size: 0.9rem; }
+.song span { color: #b3b3b3; margin-right: 12px; width: 20px; }
 
-/* Scrollbar para la lista de canciones */
-.song-list::-webkit-scrollbar { width: 5px; }
-.song-list::-webkit-scrollbar-thumb { background: #555; border-radius: 10px; }
+/* --- CONSTELACIÓN --- */
+.constellation-section { width: 100%; text-align: center; padding: 50px 20px; }
+.stars-box { position: relative; height: 350px; background: rgba(0,0,0,0.03); border-radius: 20px; border: 1px dashed #5e4b3c; margin: 0 auto; max-width: 800px; }
+.star { position: absolute; color: #5e4b3c; font-size: 0.8rem; font-weight: bold; cursor: pointer; transition: 0.4s; }
+.star:hover { color: #d81b60; text-shadow: 0 0 8px #ff80ab; transform: scale(1.2); }
+.star::before { content: '✦'; display: block; font-size: 1.1rem; }
 
-/* --- CORAZONES --- */
-.heart { position: fixed; color: #ff80ab; font-size: 20px; pointer-events: none; animation: float 5s linear infinite; }
-@keyframes float {
-    0% { transform: translateY(100vh) scale(0); opacity: 0; }
-    100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
-}
-
+/* Globales */
 .hidden { display: none; }
+.heart { position: fixed; color: #ff80ab; font-size: 20px; pointer-events: none; z-index: 100; animation: float 5s linear infinite; }
+@keyframes float { 0% { transform: translateY(100vh) scale(0); opacity: 0; } 100% { transform: translateY(-10vh) scale(1.5); opacity: 0; } }
