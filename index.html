@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Juan 🕯️💖</title>
     <link rel="stylesheet" href="main.css">
 </head>
@@ -12,10 +13,20 @@
     </header>
 
     <section id="content">
+        <div class="card timer-card">
+            <h2>Nuestros Momentos ⏳</h2>
+            <p class="summary-text">Desde que nos fijamos el uno del otro...</p>
+            <div id="clock">
+                <span id="days">0</span> días, 
+                <span id="hours">0</span> h, 
+                <span id="minutes">0</span> m, 
+                <span id="seconds">0</span> s
+            </div>
+        </div>
+
         <div class="card" id="main-card">
             <h2>Para Juan ❤️</h2>
             <p class="summary-text">Mi vida cuando llegaste cambió...</p>
-            
             <div id="main-message" class="hidden message-content">
                 <p>Sé que apenas hace 3 días empezó esto, pero confieso que estos tres apenas días que llevamos han sido los mejores del año.</p>
                 <p>En poco tiempo has logrado ganarte mi corazón, eres tan increíble... mi vida de ahora en adelante será tan diferente. Mejoró.</p>
@@ -25,9 +36,19 @@
         <div class="card" id="details-card">
             <h2>Detalles que me encantan 🌿</h2>
             <p class="summary-text">¿Por qué tú? Es fácil explicarlo...</p>
-            
             <div id="details-message" class="hidden message-content">
                 <p>Es imposible elegir una sola cosa. Me fascina la forma en que tus ojos brillan cuando te ríes, y esa sonrisa que tienes... dios, esa sonrisa. Tienes una voz que podría escuchar todo el día y un cabello que se ve increíble. En resumen, me gustas tú, completito, cada detalle tuyo es perfecto.</p>
+            </div>
+        </div>
+
+        <div class="card playlist-card">
+            <h2>Nuestra Sintonía 🎧</h2>
+            <p class="summary-text">Canciones que me hacen pensar en ti...</p>
+            <div class="song-list">
+                <p>🎵 <strong>Romantic Homicide</strong> - d4vd</p>
+                <p>🎵 <strong>Lo Que Siento</strong> - Cuco</p>
+                <p>🎵 <strong>Dark Red</strong> - Steve Lacy</p>
+                <p>🎵 <strong>Bésame</strong> - Josean Log</p>
             </div>
         </div>
     </section>
