@@ -1,5 +1,5 @@
 body {
-    background-color: #fce4ec;
+    background-color: #fce4ec; /* Rosa suave */
     color: #2c2c2c;
     font-family: 'Georgia', serif;
     display: flex;
@@ -18,6 +18,7 @@ h1 {
     text-align: center;
 }
 
+/* Estilo Base de los Cuadros (largo como antes) */
 .card {
     background: rgba(255, 255, 255, 0.9);
     padding: 30px;
@@ -28,23 +29,40 @@ h1 {
     border-left: 5px solid #5e4b3c;
     position: relative;
     z-index: 10;
-    cursor: pointer; /* Indica que se puede hacer clic */
-    transition: all 0.5s ease; /* Animación suave al abrirse */
+    cursor: pointer;
+    overflow: hidden; /* Importante para la animación de apertura */
+    transition: all 0.6s ease-in-out; /* Animación suave al abrir y cerrar */
+    height: 120px; /* Altura inicial fija (ajústala si es necesario para el texto corto) */
 }
 
+/* Efecto hover ligero */
 .card:hover {
-    transform: scale(1.02);
+    transform: translateY(-5px);
     background: white;
 }
 
+/* Clase para expandir el cuadro (se aplica con JS) */
+.card.open {
+    height: auto; /* Se expande al tamaño del contenido */
+    overflow: visible; /* Muestra el contenido oculto */
+}
+
+/* Estilos para el texto resumen (el que se ve al principio) */
+.summary-text {
+    font-style: italic;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* Clase para ocultar el contenido inicialmente */
 .hidden {
     display: none;
 }
 
-#secret-message {
+/* Estilos para el mensaje completo */
+.message-content {
     margin-top: 20px;
     line-height: 1.6;
-    font-style: italic;
     color: #5e4b3c;
     border-top: 1px solid #eee;
     padding-top: 15px;
@@ -56,7 +74,7 @@ h1 {
     to { opacity: 1; }
 }
 
-/* (El resto de los estilos de .heart y @keyframes float se mantienen igual que antes) */
+/* --- Estilo de los Corazones Flotantes (Mismo de antes) --- */
 .heart {
     position: fixed;
     color: #ff80ab;
