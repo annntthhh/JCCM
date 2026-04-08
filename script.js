@@ -1,15 +1,31 @@
-const mainCard = document.getElementById('main-card');
-const secretMessage = document.getElementById('secret-message');
-const instruction = document.getElementById('click-instruction');
+// --- Lógica de Apertura y Cierre de los Cuadros ---
 
-// Función para abrir la tarjeta
+// 1. Obtener los elementos de la carta principal
+const mainCard = document.getElementById('main-card');
+const mainMessage = document.getElementById('main-message');
+
+// 2. Escuchador de clics para la carta principal
 mainCard.addEventListener('click', function() {
-    secretMessage.classList.remove('hidden');
-    instruction.classList.add('hidden');
-    mainCard.style.cursor = 'default';
+    // Toggle (añade si no está, quita si está) la clase 'open' para la animación
+    mainCard.classList.toggle('open');
+    
+    // Toggle (mostrar/ocultar) el contenido oculto
+    mainMessage.classList.toggle('hidden');
 });
 
-// Función de los corazones (la misma de antes)
+
+// 3. Obtener los elementos del cuadro de detalles
+const detailsCard = document.getElementById('details-card');
+const detailsMessage = document.getElementById('details-message');
+
+// 4. Escuchador de clics para el cuadro de detalles
+detailsCard.addEventListener('click', function() {
+    detailsCard.classList.toggle('open');
+    detailsMessage.classList.toggle('hidden');
+});
+
+
+// --- Función de los Corazones Flotantes (Mismo de antes) ---
 function createHeart() {
     const heart = document.createElement('div');
     heart.classList.add('heart');
