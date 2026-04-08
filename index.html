@@ -24,7 +24,21 @@
                 </div>
             </div>
 
-            <div class="card" id="main-card">
+            <div class="card interactive-card">
+                <h2>Nivel de Conexión 🌡️</h2>
+                <div class="progress-container">
+                    <div class="progress-bar" id="connection-bar"></div>
+                </div>
+                <p id="connection-status">Sintonizando P.S. I Love You...</p>
+            </div>
+
+            <div class="card hug-card">
+                <h2>¿Me extrañas? 🏹</h2>
+                <button id="hug-btn">Presiona para enviarme un abrazo</button>
+                <p id="hug-response" class="hidden">¡Abrazo recibido! Prepárate, que te lo devuelvo en persona. ❤️</p>
+            </div>
+
+            <div class="card toggle-card" id="main-card">
                 <h2>Para Juan ❤️</h2>
                 <p class="summary-text">Mi vida cuando llegaste cambió...</p>
                 <div id="main-message" class="hidden message-content">
@@ -32,7 +46,7 @@
                 </div>
             </div>
 
-            <div class="card" id="details-card">
+            <div class="card toggle-card" id="details-card">
                 <h2>Detalles que me encantan 🌿</h2>
                 <p class="summary-text">¿Por qué tú? Es fácil explicarlo...</p>
                 <div id="details-message" class="hidden message-content">
@@ -44,28 +58,40 @@
         <section class="side-right">
             <div class="spotify-player">
                 <div class="spotify-header">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" width="30" alt="Spotify">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" width="25" alt="Spotify">
                     <span>Playlist para Juan</span>
                 </div>
                 <div class="song-list">
-                    <div class="song"><span>1</span> <p>P.S. I Love You - Paul Partohap</p></div>
-                    <div class="song"><span>2</span> <p>Sleep Well - d4vd</p></div>
-                    <div class="song"><span>3</span> <p>UNDERSTAND - keshi</p></div>
-                    <div class="song"><span>4</span> <p>Silver Soul - Beach House</p></div>
-                    <div class="song"><span>5</span> <p>Glue Song - beabadoobee</p></div>
-                    <div class="song"><span>6</span> <p>Here With Me - d4vd</p></div>
-                    <div class="song"><span>7</span> <p>Melting - Kali Uchis</p></div>
-                    <div class="song"><span>8</span> <p>Give Me Your Heart - Zach Templar</p></div>
-                    <div class="song"><span>9</span> <p>Amtrak - Los Retros</p></div>
-                    <div class="song"><span>10</span> <p>I Love You - Fontaines D.C.</p></div>
-                    <div class="song"><span>11</span> <p>L-O-V-E - Rocco</p></div>
-                    <div class="song"><span>12</span> <p>Be More - Stephen Sanchez</p></div>
-                    <div class="song"><span>13</span> <p>Telephones - Vacations</p></div>
-                    <div class="song"><span>14</span> <p>Tú y Yo - Vacations</p></div>
+                    <div class="song"><span>1</span><p>P.S. I Love You - Paul Partohap</p></div>
+                    <div class="song"><span>2</span><p>Sleep Well - d4vd</p></div>
+                    <div class="song"><span>3</span><p>UNDERSTAND - keshi</p></div>
+                    <div class="song"><span>4</span><p>Silver Soul - Beach House</p></div>
+                    <div class="song"><span>5</span><p>Glue Song - beabadoobee</p></div>
+                    <div class="song"><span>6</span><p>Here With Me - d4vd</p></div>
+                    <div class="song"><span>7</span><p>Melting - Kali Uchis</p></div>
+                    <div class="song"><span>8</span><p>Give Me Your Heart - Zach Templar</p></div>
+                    <div class="song"><span>9</span><p>Amtrak - Los Retros</p></div>
+                    <div class="song"><span>10</span><p>I Love You - Fontaines D.C.</p></div>
+                    <div class="song"><span>11</span><p>L-O-V-E - Rocco</p></div>
+                    <div class="song"><span>12</span><p>Be More - Stephen Sanchez</p></div>
+                    <div class="song"><span>13</span><p>Telephones - Vacations</p></div>
+                    <div class="song"><span>14</span><p>Tú y Yo - Vacations</p></div>
                 </div>
             </div>
         </section>
     </main>
+
+    <section class="constellation-section">
+        <h2 class="constellation-title">Nuestra Constelación ✨</h2>
+        <div class="stars-box">
+            <span class="star" style="top: 20%; left: 30%;">Increíble</span>
+            <span class="star" style="top: 50%; left: 10%;">Tus ojos</span>
+            <span class="star" style="top: 70%; left: 40%;">Tu voz</span>
+            <span class="star" style="top: 30%; left: 70%;">5 de abril</span>
+            <span class="star" style="top: 60%; left: 80%;">Tu risa</span>
+            <span class="star" style="top: 15%; left: 55%;">Perfecto</span>
+        </div>
+    </section>
 
     <div id="hearts-container"></div>
     <script src="script.js"></script>
