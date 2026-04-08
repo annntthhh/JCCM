@@ -1,46 +1,61 @@
-// --- Lógica de Apertura y Cierre de los Cuadros ---
+// --- 1. Lógica de Apertura/Cierre de Cuadros ---
+function setupToggle(cardId, messageId) {
+    const card = document.getElementById(cardId);
+    const message = document.getElementById(messageId);
 
-// 1. Obtener los elementos de la carta principal
-const mainCard = document.getElementById('main-card');
-const mainMessage = document.getElementById('main-message');
+    card.addEventListener('click', () => {
+        card.classList.toggle('open');
+        message.classList.toggle('hidden');
+    });
+}
 
-// 2. Escuchador de clics para la carta principal
-mainCard.addEventListener('click', function() {
-    // Toggle (añade si no está, quita si está) la clase 'open' para la animación
-    mainCard.classList.toggle('open');
-    
-    // Toggle (mostrar/ocultar) el contenido oculto
-    mainMessage.classList.toggle('hidden');
-});
+setupToggle('main-card', 'main-message');
+setupToggle('details-card', 'details-message');
 
+// --- 2. Lógica del Reloj Contador (5 de Abril, 5:00 PM) ---
+const startDate = new Date('2026-04-05T17:00:00');
 
-// 3. Obtener los elementos del cuadro de detalles
-const detailsCard = document.getElementById('details-card');
-const detailsMessage = document.getElementById('details-message');
+function updateTimer() {
+    const now = new Date();
+    const diff = now - startDate;
 
-// 4. Escuchador de clics para el cuadro de detalles
-detailsCard.addEventListener('click', function() {
-    detailsCard.classList.toggle('open');
-    detailsMessage.classList.toggle('hidden');
-});
+    // Cálculos de tiempo
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / (1000 * 60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
 
+    // Actualizar el HTML
+    document.getElementById('days').innerText = d;
+    document.getElementById('hours').innerText = h;
+    document.getElementById('minutes').innerText = m;
+    document.getElementById('seconds').innerText = s;
+}
 
-// --- Función de los Corazones Flotantes (Mismo de antes) ---
+// Iniciar contador
+setInterval(updateTimer, 1000);
+updateTimer();
+
+// --- 3. Lógica de Corazones Flotantes ---
 function createHeart() {
+    const container = document.getElementById('hearts-container');
     const heart = document.createElement('div');
     heart.classList.add('heart');
     heart.innerHTML = '❤️';
+    
     heart.style.left = Math.random() * 100 + "vw";
-    const duration = Math.random() * 3 + 2;
+    const duration = Math.random() * 3 + 3;
     heart.style.animationDuration = duration + "s";
     heart.style.opacity = Math.random();
-    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    heart.style.fontSize = Math.random() * 15 + 15 + "px";
     
-    document.getElementById('hearts-container').appendChild(heart);
+    container.appendChild(heart);
     
     setTimeout(() => {
         heart.remove();
     }, duration * 1000);
 }
 
-setInterval(createHeart, 300);
+setInterval(createHeart, 400);
+
+console.log("¡Todo listo para Juan! ✨");
